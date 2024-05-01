@@ -1,6 +1,3 @@
-package components;
-
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -16,9 +13,9 @@ public class DrawnShapeContainer extends JPanel {
         this.setOpaque(true);
 
         shape = new JPanel();
-        shape.setMaximumSize(new Dimension(400, 400));
-        shape.setPreferredSize(new Dimension(400, 400));
-        shape.setMinimumSize(new Dimension(400, 400));
+        shape.setMaximumSize(new Dimension(450, 450));
+        shape.setPreferredSize(new Dimension(450, 450));
+        shape.setMinimumSize(new Dimension(450, 450));
         shape.setBackground(Color.white);
         shape.setOpaque(true);
         shape.setAlignmentX(CENTER_ALIGNMENT);
@@ -26,11 +23,15 @@ public class DrawnShapeContainer extends JPanel {
         this.add(shape);
         this.add(Box.createRigidArea(new Dimension(0, 30)));
 
-        outputText = new JLabel("You drew a Circle with a Pen!");
-        outputText.setFont(new Font("Rubik", Font.BOLD, 22));
-        outputText.setForeground(Color.white);
-        outputText.setAlignmentX(CENTER_ALIGNMENT);
-
+        outputText = new OutputLabel("");
         this.add(outputText);
+    }
+
+    public void setOutputText(JLabel newOutputText) {
+        this.remove(outputText);
+        this.outputText = newOutputText;
+        this.add(newOutputText);
+        this.revalidate();
+        this.repaint();
     }
 }
