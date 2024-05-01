@@ -208,6 +208,10 @@ public class Sidebar extends JPanel implements ActionListener {
         this.toolSelected = toolSelected;
     }
 
+    public void setColorSelected(String colorSelected) {
+        this.colorSelected = colorSelected;
+    }
+
     public JButton getShapeSelected() {
         return shapeSelected;
     }
@@ -215,6 +219,8 @@ public class Sidebar extends JPanel implements ActionListener {
     public JButton getToolSelected() {
         return toolSelected;
     }
+
+
 
     public void setSelectedButton(JButton btn) {
         btn.setBackground(new Color(0x2563eb));

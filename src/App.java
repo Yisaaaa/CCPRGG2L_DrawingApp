@@ -23,6 +23,7 @@ public class App extends JFrame {
 
         this.setVisible(true);
         this.pack();
+        this.setLocationRelativeTo(null);
     }
 
     public DrawnShapeContainer getDrawnShapeContainer() {
