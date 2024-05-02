@@ -190,7 +190,7 @@ public class Sidebar extends JPanel implements ActionListener {
                 }
             }
         } else if(colorBtn.equals(source)) {
-                Color color = JColorChooser.showDialog(null, "Choose Color", colorBtn.getBackground());
+                Color color = JColorChooser.showDialog(null, "Choose Color", Color.black);
                 setColorSelected(color);
         } else if (drawBtn.equals(source)) {
             String outputText;
