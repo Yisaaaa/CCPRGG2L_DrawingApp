@@ -34,7 +34,7 @@ public class Sidebar extends JPanel implements ActionListener {
     JButton drawBtn;
 
     private JButton shapeSelected;
-    private String colorSelected;
+    private Color colorSelected;
     private JButton toolSelected;
 
     App parent;
@@ -144,6 +144,7 @@ public class Sidebar extends JPanel implements ActionListener {
         colorBtn = new ButtonPrimary();
         colorBtn.setAlignmentX(LEFT_ALIGNMENT);
         colorBtn.setText("Choose");
+        colorBtn.addActionListener(this);
 
         colorBtnContainer.add(colorBtnContainerLabel);
         colorBtnContainer.add(Box.createRigidArea(new Dimension(0, 10)));
@@ -188,6 +189,9 @@ public class Sidebar extends JPanel implements ActionListener {
                     setUnselectedButton(tool);
                 }
             }
+        } else if(colorBtn.equals(source)) {
+                Color color = JColorChooser.showDialog(null, "Choose Color", Color.black);
+                setColorSelected(color);
         } else if (drawBtn.equals(source)) {
             String outputText;
             if (shapeSelected == null || toolSelected == null) {
@@ -208,7 +212,7 @@ public class Sidebar extends JPanel implements ActionListener {
         this.toolSelected = toolSelected;
     }
 
-    public void setColorSelected(String colorSelected) {
+    public void setColorSelected(Color colorSelected) {
         this.colorSelected = colorSelected;
     }
 
