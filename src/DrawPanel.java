@@ -38,7 +38,6 @@ public class DrawPanel extends JPanel implements MouseListener{
         String shapeSelected = sidebar.getShapeSelected().getText().toLowerCase();
         String toolSelected = sidebar.getToolSelected().getText().toLowerCase();
         Color colorSelected = sidebar.getColorSelected();
-        System.out.println(colorSelected);
 
         if (shapeSelected.equals("square")) {
             if (toolSelected.equals("brush")) {
