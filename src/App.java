@@ -18,7 +18,7 @@ public class App extends JFrame {
         sidebar = new Sidebar(this);
         this.add(sidebar, BorderLayout.LINE_START);
 
-        drawnShapeContainer = new DrawnShapeContainer();
+        drawnShapeContainer = new DrawnShapeContainer(this);
         this.add(drawnShapeContainer, BorderLayout.CENTER);
 
         this.setVisible(true);

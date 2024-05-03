@@ -1,24 +1,25 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class DrawnShapeContainer extends JPanel {
+public class DrawnShapeContainer extends JPanel  {
 
-    JPanel shape;
+    DrawPanel shape;
     JLabel outputText;
+    App parent;
 
-    public DrawnShapeContainer() {
+    public DrawnShapeContainer(App parent) {
+        this.parent = parent;
         this.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setBackground(null);
         this.setOpaque(true);
 
-        shape = new JPanel();
-        shape.setMaximumSize(new Dimension(450, 450));
-        shape.setPreferredSize(new Dimension(450, 450));
-        shape.setMinimumSize(new Dimension(450, 450));
-        shape.setBackground(Color.white);
-        shape.setOpaque(true);
-        shape.setAlignmentX(CENTER_ALIGNMENT);
+
+
+        this.shape = new DrawPanel(parent);
+
 
         this.add(shape);
         this.add(Box.createRigidArea(new Dimension(0, 30)));
@@ -27,11 +28,10 @@ public class DrawnShapeContainer extends JPanel {
         this.add(outputText);
     }
 
-    public void setOutputText(JLabel newOutputText) {
-        this.remove(outputText);
-        this.outputText = newOutputText;
-        this.add(newOutputText);
-        this.revalidate();
-        this.repaint();
+    public void setOutputText(String newOutputText) {
+        outputText.setText(newOutputText);
     }
+
+
+
 }

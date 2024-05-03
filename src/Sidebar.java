@@ -46,6 +46,9 @@ public class Sidebar extends JPanel implements ActionListener {
         this.setBackground(null);
         this.setOpaque(true);
 
+        // Default color
+        this.colorSelected = Color.BLACK;
+
         // Adding the Shapes
         shapeBtnContainer = new JPanel();
         shapeBtnContainer.setLayout(new BoxLayout(shapeBtnContainer, BoxLayout.Y_AXIS));
@@ -164,7 +167,7 @@ public class Sidebar extends JPanel implements ActionListener {
         drawBtn.setFocusable(false);
         drawBtn.addActionListener(this);
 
-        this.add(drawBtn);
+//        this.add(drawBtn);
 
     }
 
@@ -200,7 +203,7 @@ public class Sidebar extends JPanel implements ActionListener {
                 outputText = String.format("You drew a %s with a %s!", shapeSelected.getText(), toolSelected.getText());
             }
 
-            parent.getDrawnShapeContainer().setOutputText(new OutputLabel(outputText));
+            parent.getDrawnShapeContainer().setOutputText(outputText);
         }
     }
 
@@ -224,6 +227,9 @@ public class Sidebar extends JPanel implements ActionListener {
         return toolSelected;
     }
 
+    public Color getColorSelected() {
+        return colorSelected;
+    }
 
 
     public void setSelectedButton(JButton btn) {
