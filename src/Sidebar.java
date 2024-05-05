@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,6 +26,13 @@ public class Sidebar extends JPanel implements ActionListener {
     JButton pen;
     JButton brush;
     ArrayList<JButton> tools = new ArrayList<>();
+
+    // Size
+    SpinnerModel numberSpinnerModel = new SpinnerNumberModel(1, 1, 100, 1);
+    JSpinner size = new JSpinner(numberSpinnerModel);
+    int sizeValue = (int) size.getValue();
+    JLabel sizeLabel = new BtnContainerLabel();
+
 
     // Color
     JPanel colorBtnContainer;
@@ -112,8 +121,6 @@ public class Sidebar extends JPanel implements ActionListener {
         toolBtns.setBackground(null);
         toolBtns.setOpaque(true);
 
-
-
         pen = new ButtonPrimary();
         pen.setText("Pen");
         pen.addActionListener(this);
@@ -134,6 +141,27 @@ public class Sidebar extends JPanel implements ActionListener {
 
         this.add(toolBtnContainer);
         this.add(Box.createRigidArea(new Dimension(0, 50)));
+
+
+        // Adding size
+
+        sizeLabel.setText("Size");
+        this.add(sizeLabel);
+        this.add(Box.createRigidArea(new Dimension(0, 10)));
+
+        size.setPreferredSize(new Dimension(100, 30));
+        size.setMaximumSize(new Dimension(100, 30));
+        size.setMinimumSize(new Dimension(100, 30));
+        size.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent changeEvent) {
+                sizeValue = (int) ((JSpinner) changeEvent.getSource()).getValue();
+            }
+        });
+        this.add(size);
+        size.setAlignmentX(LEFT_ALIGNMENT);
+        this.add(Box.createRigidArea(new Dimension(0, 50)));
+
 
         // Adding the color picker
         colorBtnContainer = new JPanel();

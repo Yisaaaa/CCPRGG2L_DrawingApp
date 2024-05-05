@@ -20,6 +20,7 @@ public class Brush implements Tool {
         g2d.setColor(color);
         g2d.setStroke(new BasicStroke(6));
         g2d.drawOval(x - (side/2), y - (side / 2), side, side);
+        
     }
 
 

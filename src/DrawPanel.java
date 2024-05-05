@@ -8,6 +8,7 @@ public class DrawPanel extends JPanel implements MouseListener{
     App parent;
     Sidebar sidebar;
 
+
     public DrawPanel(App parent) {
         this.parent = parent;
         this.sidebar = parent.sidebar;
@@ -31,13 +32,14 @@ public class DrawPanel extends JPanel implements MouseListener{
         int x = mouseEvent.getX();
         int y = mouseEvent.getY();
 
-        int side = 100;
 
         System.out.println("clicked");
 
         String shapeSelected = sidebar.getShapeSelected().getText().toLowerCase();
         String toolSelected = sidebar.getToolSelected().getText().toLowerCase();
         Color colorSelected = sidebar.getColorSelected();
+
+        int side = parent.sidebar.sizeValue * 10;
 
         if (shapeSelected.equals("square")) {
             if (toolSelected.equals("brush")) {
